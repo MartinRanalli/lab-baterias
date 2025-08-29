@@ -1,203 +1,144 @@
-/* ESTILO GENERAL DE LA PAGINA */
-body {
-    height: 100%;
+/* RESET Y ESTILOS GENERALES */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fuente Orbitron desde Google Fonts */
+body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 500;
 }
 
-/* ESTILO DE LA BARRA DE NAVEGACION */
-.navbar{
-    background-color: yellow;
-    overflow: hidden;
-    width: 100%;
+/* BARRA DE NAVEGACION */
+.navbar {
+    background: yellow;
     border: 2px solid #222;
+    width: 100%;
 }
 
-/* CONTENIDO DE LA BARRA DE NAVEGACION */
+/* Contenedor flex para alinear logo, título y enlaces */
 .navbar nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 24px;
-    flex-wrap: wrap;
+    padding: 0 20px;
+    position: relative;
 }
 
-/* CENTRAR EL TITULO */
-.titulo{
- position: absolute; left: 50%; 
- transform: translateX(-50%);
-}
-
-/* ESTILO DEL TITULO */
-.navbar h1{
-    color: red;
-    font-size: 30px;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 850;
-    margin: 0;
-}
-
-/* ESTILO DEL LOGO */
-.logo{
-    text-align: center;
-    padding: 4px 16px;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-/* TAMAÑO DEL LOGO*/
-.logo img{
+/* Logo a la izquierda */
+.logo img {
     height: 100px;
-    width: auto;
     margin-top: 5px;
 }
 
-/* ESTILO DE LOS ENLACES NAVBAR*/
+/* Enlaces centrados */
 .enlaces {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     gap: 8px;
 }
 
-/* ESTILO DE CADA ENLACE NAVBAR*/
-.enlaces a{
+/* Estilos para los enlaces */
+.enlaces a {
     padding: 13px 25px;
-    background-color: #222;
+    background: #222;
     border-radius: 50px;
     color: #fff;
-    text-decoration: none;
     font-size: 18px;
+    text-decoration: none;
     margin: 8px 9px;
     display: inline-block;
+    transition: background 0.3s, color 0.3s;
 }
 
-/* EFECTO HOVER EN LOS ENLACES NAVBAR*/
-.enlaces a:hover{
-    background-color: #f64b4b; 
-    color: yellow           
+/* Efecto hover para los enlaces */
+.enlaces a:hover {
+    background: #f64b4b;
+    color: yellow;
 }
 
 /* CONTENIDO PRINCIPAL */
 main {
+    background: #ffffe0;
     border: 2px solid #222;
     flex: 1;
+    font-size: 15px;
 }
 
-.inicio{
+/* Secciones centradas */
+.inicio,
+.estilo-contacto,
+.estilo-ubicacion {
     text-align: center;
-    margin: 20px 0;
 }
 
-/* ESTILO DEL FOOTER */
-footer{
-    margin: 0;
-    padding: 0;
-    background-color: blue;
+/* Imagen en la sección de inicio */
+.estilo-inicio img {
+   width: 30%;
+   border: 2px solid #222;
+   margin-right: 50px;
+}
+
+/* Imágenes en la sección de footer */
+.estilo-ubicacion a img {
+    width: 0px;
+    height: 60px;
+}
+
+/* footer */
+footer {
+    background: blue;
     border: 2px solid #222;
-}
-
-/* ESTILO DE LA SECCION CONTACTO */
-.contacto{
     color: white;
     font-size: 15px;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 500;
-    margin: 0;
-    padding: 20px;
-    margin-top: -20px;
 }
 
-/* ESTILO DEL TEXTO DE LA SECCION CONTACTO */
-.estilo-contacto{
-    text-align: center;
-}
-
-/* ESTILO DE LA SECCION DERECHOS RESERVADOS */
-.copyright{
-    color: white;
-    font-size: 12px;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 500;
-    padding: 10px;
-    border-top: 1px solid white;
-    margin-top: 10px;
-    text-align: center;
-}
-
-/* ESTILO DE LAS REDES SOCIALES */
-.redes-sociales img{
-    width: 30px;
-    height: 30px;
-    margin: 0 10px;
-}
-/* CENTRAR LAS REDES SOCIALES */
-.redes-sociales{
-    align-items: center;
-    text-align: center;
-}
-
-/* ESTILO DE LA SECCION UBICACION */
-.estilo-ubicacion{
-    text-align: center;
-    margin-top: 20px;
-    font-size: 12px;
-}
-
-/* ESTILO DE LAS IMAGENES DE UBICACION */
-.estilo-ubicacion a img{
-    width: 70px;
-    height: 70px;
-    margin: 0 10px;
-}
-
-/* ESTILO DEL CONTENIDO DEL FOOTER */
+/* Estructura del contenido del footer */
 footer .footer-contenido {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
     flex-wrap: wrap;
     gap: 24px;
-    padding: 30px 10px 10px 10px;
+    padding: 30px 10px 10px;
 }
-
-/* ESTILO DE CADA SECCION DENTRO DEL FOOTER */
+/* Secciones dentro del footer */
 footer .footer-contenido > section {
     flex: 1 1 250px;
     min-width: 200px;
     max-width: 350px;
-    box-sizing: border-box;
 }
 
-/* ESTILO DE LA SECCION HORARIOS */
+/*Tamaño de los iconos de las redes sociales*/
+.redes-sociales img {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+}
+/*Estilo del copyright*/
+.copyright {
+    padding: 10px;
+    border-top: 1px solid white;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* MEDIA QUERIES PARA RESPONSIVE DESIGN */
 @media (max-width: 900px) {
     footer .footer-contenido {
         flex-direction: column;
         align-items: center;
         gap: 10px;
     }
-    /* ESTILO DE CADA SECCION DENTRO DEL FOOTER */
+/* Ajuste de las secciones del footer en pantallas pequeñas */
     footer .footer-contenido > section {
         max-width: 100%;
         width: 100%;
     }
-}
-
-.estilo-ubicacion{
-    color: white;
-    font-size: 15px;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 500;
-    margin: 0;
-    padding: 0;
-}
-
-.estilo-horarios{
-    color: white;
-    font-size: 15px;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 500;
-    margin: 0;
-    padding: 0;
 }
