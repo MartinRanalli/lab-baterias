@@ -1,0 +1,47 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.navbar{
+    background-color: #111;
+    overflow: hidden;
+    width: 100%;
+}
+
+.navbar h1{
+    color: red;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+}
+
+.logo{
+    float: left;
+    text-align: center;
+    padding: 4px 16px;
+    text-decoration: none;
+    font-size: 18px;
+}
+.logo img{
+    height: 100px;
+    width: auto;
+    margin-top: 5px;
+}
+
+.enlaces a{
+    float: right;
+    padding: 13px 25px;
+    background-color: rgb(255, 234, 1);
+    border-radius: 50px;
+    color: red;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 8px 16px;
+}
+
+.enlaces a:hover{
+    background-color: #FFA500; /* Cambia el color de fondo */
+    color: #fff;           /* Cambia el color del texto */
+}
