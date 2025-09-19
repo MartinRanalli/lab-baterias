@@ -1,11 +1,14 @@
 /* RESET Y ESTILOS GENERALES */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
 /* Fuente Orbitron desde Google Fonts */
+
 body {
     min-height: 100vh;
     display: flex;
@@ -14,14 +17,18 @@ body {
     font-weight: 500;
 }
 
+
 /* BARRA DE NAVEGACION */
+
 .navbar {
     background: yellow;
     border: 2px solid #222;
     width: 100%;
 }
 
+
 /* Contenedor flex para alinear logo, título y enlaces */
+
 .navbar nav {
     display: flex;
     align-items: center;
@@ -30,13 +37,17 @@ body {
     position: relative;
 }
 
+
 /* Logo a la izquierda */
+
 .logo img {
     height: 100px;
     margin-top: 5px;
 }
 
+
 /* Enlaces centrados */
+
 .enlaces {
     position: absolute;
     left: 50%;
@@ -45,7 +56,9 @@ body {
     gap: 8px;
 }
 
+
 /* Estilos para los enlaces */
+
 .enlaces a {
     padding: 13px 25px;
     background: #222;
@@ -58,13 +71,17 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
+
 /* Efecto hover para los enlaces */
+
 .enlaces a:hover {
     background: #f64b4b;
     color: yellow;
 }
 
+
 /* CONTENIDO PRINCIPAL */
+
 main {
     background: #ffffe0;
     border: 2px solid #222;
@@ -72,27 +89,69 @@ main {
     font-size: 15px;
 }
 
+a
 /* Secciones centradas */
-.inicio,
+
+
 .estilo-contacto,
 .estilo-ubicacion {
     text-align: center;
 }
 
+.inicio{
+ margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+}
+
+
+
 /* Imagen en la sección de inicio */
+
 .estilo-inicio img {
-   width: 30%;
-   border: 2px solid #222;
-   margin-right: 50px;
+    width: 40%;
+    height: 30%;
+    border: 2px solid #222;
+    margin-right: 50px;
+}
+
+.nosotros{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+}
+
+/* Imagen en la sección de contacto */
+.estilo-servicios img {
+    width: 40%;
+    height: 30%;
+    border: 2px solid #222;
+    margin-right: 50px;
+}
+/* Estilo de los te xtos en las secciones */
+.servicios{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+
 }
 
 /* Imágenes en la sección de footer */
+
 .estilo-ubicacion a img {
     width: 0px;
     height: 60px;
 }
 
+
 /* footer */
+
 footer {
     background: blue;
     border: 2px solid #222;
@@ -100,7 +159,9 @@ footer {
     font-size: 15px;
 }
 
+
 /* Estructura del contenido del footer */
+
 footer .footer-contenido {
     display: flex;
     justify-content: space-between;
@@ -108,20 +169,28 @@ footer .footer-contenido {
     gap: 24px;
     padding: 30px 10px 10px;
 }
+
+
 /* Secciones dentro del footer */
-footer .footer-contenido > section {
+
+footer .footer-contenido>section {
     flex: 1 1 250px;
     min-width: 200px;
     max-width: 350px;
 }
 
+
 /*Tamaño de los iconos de las redes sociales*/
+
 .redes-sociales img {
     width: 30px;
     height: 30px;
     margin: 0 10px;
 }
+
+
 /*Estilo del copyright*/
+
 .copyright {
     padding: 10px;
     border-top: 1px solid white;
@@ -129,15 +198,17 @@ footer .footer-contenido > section {
     margin-top: 10px;
 }
 
+
 /* MEDIA QUERIES PARA RESPONSIVE DESIGN */
+
 @media (max-width: 900px) {
     footer .footer-contenido {
         flex-direction: column;
         align-items: center;
         gap: 10px;
     }
-/* Ajuste de las secciones del footer en pantallas pequeñas */
-    footer .footer-contenido > section {
+    /* Ajuste de las secciones del footer en pantallas pequeñas */
+    footer .footer-contenido>section {
         max-width: 100%;
         width: 100%;
     }
