@@ -73,7 +73,11 @@ main {
 }
 
 /* Secciones centradas */
-.inicio,
+.inicio, .estilo-nosotros, .estilo-servicios{
+    text-align: center;
+
+}
+
 .estilo-contacto,
 .estilo-ubicacion {
     text-align: center;
@@ -88,7 +92,7 @@ main {
 
 /* Imágenes en la sección de footer */
 .estilo-ubicacion a img {
-    width: 0px;
+    width: 60px;
     height: 60px;
 }
 
