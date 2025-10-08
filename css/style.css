@@ -125,7 +125,16 @@ main {
 .estilo-ubicacion a img {
   width: 60px;
   height: 60px;
+  display: inline-block;
+  margin: 0 auto;
 }
+.estilo-ubicacion{
+  text-align: center;
+}
+
+
+
+
 
 /* CATALOGO DE PRODUCTOS */
 .catalogo {
