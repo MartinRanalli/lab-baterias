@@ -11,6 +11,11 @@
    <link rel="stylesheet" href="css/style.css">
 
 </head>
+<script>
+  document.getElementById("adminBtn").addEventListener("click", () => {
+    window.location.href = "login.html";
+  });
+</script>
 
 <body>
         <!-- ESTA ES LA SECCION DEL NAVBAR -->
@@ -26,7 +31,8 @@
                 <a href="index.html" id="inicio">Inicio</a>
                 <a href="nosotros.html">Nosotros</a>
                 <a href="servicios.html">Servicios</a>
-                <a href="catalogo.html">Catalogo</a>         
+                <a href="catalogo.html">Catalogo</a>
+                <a href="login.html" id="adminBtn">Admin</a>         
             </div>
         </nav>
     </section>

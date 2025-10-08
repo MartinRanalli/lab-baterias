@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Admin</title>
+  <link rel="stylesheet" href="css/login.css">
+  
+</head>
+<!-- Boton para volver -->
+<button type="button" class="btn-volver" onclick="window.location.href='index.html'">Volver</button>
+<body>
+    <!-- Contenedor del formulario de login -->
+  <div class="login-container"> 
+    <h2>Ingreso de Administrador</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Usuario" required>
+      <input type="password" id="password" placeholder="Contraseña" required>
+      <button type="submit">Ingresar</button>
+    </form>
+    
+  </div>
+
+  <!-- Script para manejar el login -->
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) { // Manejar el evento de envío del formulario
+      e.preventDefault(); // Prevenir el envío por defecto
+
+      const user = document.getElementById("username").value; // Obtener valores de usuario y contraseña
+      const pass = document.getElementById("password").value; // Credenciales fijas para el administrador
+
+      if (user === "martin" && pass === "1234") { // Verificar credenciales
+        localStorage.setItem("adminLogged", "true"); // Guardar estado de sesión en localStorage
+        window.location.href = "admin.html"; // Redirigir al panel de administración
+      } else {
+        alert("Usuario o contraseña incorrectos"); // Mostrar mensaje de error
+      }
+    });
+  </script>
+</body>
+</html>

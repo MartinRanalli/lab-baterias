@@ -29,56 +29,51 @@
 
   <!-- SECCION DE CATALOGO -->
 
-  <main>
-    <section class="catalogo">
-      <div class="estilo-catalogo">
-        <h1>Catálogo de Baterías</h1>
-        <br><br>
-
-        <br><br>
-
-        <!-- Lista de productos -->
-
-        <div class="productos">
-          <!-- Producto 1 -->
-
-          <div class="producto">
-            <img src="img/bateria1.png" alt="Batería Moura 105Ah">
-            <h2>Batería Moura 105Ah</h2><br>
-            <p><strong>Ideal para autos de alta gama con 24 meses de garantía.</strong></p>
-            <span class="precio">$85.000</span>
-          </div>
-          <!-- Producto 2 -->
-          <div class="producto">
-            <img src="img/bateria2.png" alt="Batería Quasar
-  60Ah">
-            <h2>Batería Quasar 60Ah</h2>
-            <button class="ver" onclick="toggleDetalles(this)">Ver</button>
-            <div class="detalles" style="display: none;">
-              <p><strong>Capacidad:</strong>105 W</p>
-              <p><strong>Garantia:</strong> 12 meses</p>
-              <p class="precio">$85000</p>
-            
-            </div>
-          </div>
-
-        </div>
-
+<!-- ...existing code... -->
+<main>
+  <section class="catalogo">
+    <div class="estilo-catalogo">
+      <h1>Catálogo de Baterías</h1>
+      <br><br>
+      <div class="productos" id="productos-dinamicos">
+        <!-- Aquí se mostrarán los productos agregados dinámicamente -->
       </div>
-      
+    </div>
+  </section>
+  <script>
+    // Mostrar productos guardados en localStorage
+    const productos = JSON.parse(localStorage.getItem("productos")) || [];
+    const contenedor = document.getElementById("productos-dinamicos");
 
-    </section>
-<script>
+    if (productos.length === 0) {
+      contenedor.innerHTML = "<p>No hay productos en el catálogo.</p>";
+    } else {
+      productos.forEach(p => {
+        const div = document.createElement("div");
+        div.className = "producto";
+        div.innerHTML = `
+          ${p.img ? `<img src="${p.img}" alt="${p.nombre}">` : ""}
+          <h2>${p.nombre}</h2>
+          <button class="ver" onclick="toggleDetalles(this)">Ver</button>
+          <div class="detalles" style="display: none;">
+            <p><strong>Descripción:</strong> ${p.descripcion || ""}</p>
+            <p><strong>Garantía:</strong> ${p.garantia || ""}</p>
+            <span class="precio">${p.precio ? "$" + p.precio : ""}</span>
+          </div>
+        `;
+        contenedor.appendChild(div);
+      });
+    }
+
     function toggleDetalles(button) {
       const detalles = button.nextElementSibling;
       const isVisible = detalles.style.display === 'block';
       detalles.style.display = isVisible ? 'none' : 'block';
-      button.textContent = isVisible ? 'Ver' : 'Ocultar';      
+      button.textContent = isVisible ? 'Ver' : 'Ocultar';
     }
-</script>
-  </main>
-
-</body>
+  </script>
+</main>
+<!-- ...existing code... -->
 
 
 <!-- FOOTER -->
@@ -120,6 +115,8 @@
       </div>
     </section>
   </div>
+
+
   <!-- SECCION DE COPYRIGHT -->
   <section class="copyright">
     <div class="estilo-copyright">

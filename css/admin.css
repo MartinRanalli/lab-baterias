@@ -1,0 +1,135 @@
+/* RESET Y FUENTE */
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', sans-serif;
+  background-image: url(../img/fondo1.jpg);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* TÍTULO */
+h1 {
+  color: #fff;
+  background: #222;
+  border: 2px solid #222;
+  border-radius: 20px;
+  padding: 18px 40px;
+  margin-top: 40px;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 0 10px #0002;
+}
+
+/* BOTÓN LOGOUT */
+#logout {
+  background: #FFD600;
+  color: #B22222;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 30px;
+  margin: 30px 0 20px 0;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  box-shadow: 0 0 8px #0002;
+}
+#logout:hover {
+  background: #f64b4b;
+  color: #fff;
+}
+
+/* FORMULARIO DE PRODUCTO */
+#formProducto {
+  background: #222;
+  color: #fff;
+  padding: 30px 30px 20px 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #0002;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+#formProducto input[type="text"],
+#formProducto input[type="file"] {
+  width: 90%;
+  padding: 12px;
+  border-radius: 35px;
+  border: 1px solid #FFD600;
+  font-size: 14px;
+  background: #fff;
+  color: #222;
+  outline: none;
+  transition: border 0.2s;
+  margin-left: auto;   /* Centra el formulario horizontalmente */
+  margin-right: auto;  /* Centra el formulario horizontalmente */
+}
+
+#formProducto input[type="text"]:focus {
+  border: 2px solid #f64b4b;
+}
+
+#formProducto button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: #FFD600;
+  color: #B22222;
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s, color 0.3s;
+}
+#formProducto button[type="submit"]:hover {
+  background: #f64b4b;
+  color: #fff;
+}
+
+/* LISTA DE PRODUCTOS */
+#listaProductos {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+  width: 350px;
+}
+
+#listaProductos li {
+  background: #fff;
+  color: #222;
+  border: 2px solid #222;
+  border-radius: 15px;
+  margin-bottom: 18px;
+  padding: 18px 16px;
+  font-size: 18px;
+  box-shadow: 0 0 8px #0001;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#listaProductos button {
+  background: #FFD600;
+  color: #B22222;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 18px;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: background 0.3s, color 0.3s;
+}
+#listaProductos button:hover {
+  background: #f64b4b;
+  color: #fff;
+}

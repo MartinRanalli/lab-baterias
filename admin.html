@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Administración</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <h1>Panel de Administración</h1>
+  <!--Boton para volver-->
+  <button id="logout">Cerrar sesión</button>
+<!-- Formulario para agregar/editar productos -->
+  <form id="formProducto">
+    <input type="text" id="nombre" placeholder="Nombre del producto" required>
+    <input type="text" id="precio" placeholder="Precio" required>
+    <input type="text" id="garantia" placeholder="Garantía" required>
+    <input type="text" id="descripcion" placeholder="Descripción" required>
+    <input type="file" id="imagen" accept="image/*">
+    <button type="submit">Agregar producto</button>
+  </form>
+
+  <!-- Lista de productos -->
+  <ul id="listaProductos"></ul> 
+
+ 
+  <script> // Verificar si el administrador ha iniciado sesión
+    if (localStorage.getItem("adminLogged") !== "true") { // Redirigir si no ha iniciado sesión
+      window.location.href = "login.html";
+    }
+
+    const productos = JSON.parse(localStorage.getItem("productos")) || []; // Obtener productos del localStorage
+    const lista = document.getElementById("listaProductos"); // Contenedor de la lista de productos
+    const defaultImg = "img/default-product.png"; // Imagen por defecto
+
+    function mostrarProductos() { // Mostrar productos en la lista
+      lista.innerHTML = ""; 
+      productos.forEach((p, i) => {
+        const li = document.createElement("li"); // Crear elemento de lista
+        li.innerHTML = `
+          <strong>${p.nombre}</strong> - $${p.precio}
+          <br>
+          <button onclick="eliminarProducto(${i})">Eliminar</button>
+          <button onclick="editarProducto(${i})">Editar</button>
+        `;
+        lista.appendChild(li);
+      });
+    }
+
+    function eliminarProducto(i) { // Eliminar producto de la lista
+      if (!confirm("¿Estás seguro de que deseas eliminar este producto?")) return; // Confirmar eliminación
+      productos.splice(i, 1); 
+      localStorage.setItem("productos", JSON.stringify(productos));
+      mostrarProductos();
+    }
+
+    function editarProducto(i) { // Editar producto existente
+      const producto = productos[i]; // Cargar datos en el formulario
+      document.getElementById("nombre").value = producto.nombre; 
+      document.getElementById("precio").value = producto.precio;
+      document.getElementById("garantia").value = producto.garantia;
+      document.getElementById("descripcion").value = producto.descripcion;
+      document.getElementById("formProducto").setAttribute("data-edit", i);
+    }
+
+    document.getElementById("formProducto").addEventListener("submit", function(e) { // Manejar envío del formulario
+      e.preventDefault(); // Evitar recarga de página
+      const nombre = document.getElementById("nombre").value; // Obtener valores del formulario
+      const precio = document.getElementById("precio").value;
+      const garantia = document.getElementById("garantia").value;
+      const descripcion = document.getElementById("descripcion").value;
+      const imagenInput = document.getElementById("imagen");
+      const file = imagenInput.files[0];
+      const editIndex = e.target.getAttribute("data-edit");
+
+      function guardarProducto(imgBase64) { // Guardar producto en localStorage
+        const nuevoProducto = { nombre, precio, descripcion, garantia, img: imgBase64 }; // Crear objeto producto
+        if (editIndex !== null && editIndex !== "") { 
+          productos[editIndex] = nuevoProducto; // Actualizar producto existente
+          e.target.removeAttribute("data-edit"); //
+        } else {
+          productos.push(nuevoProducto); // Agregar nuevo producto
+        }
+        localStorage.setItem("productos", JSON.stringify(productos)); // Guardar en localStorage
+        mostrarProductos(); // Actualizar lista
+        e.target.reset(); 
+      }
+
+      if (file) { // Leer archivo de imagen si se seleccionó uno
+        const reader = new FileReader(); 
+        reader.onload = function(evt) { 
+          guardarProducto(evt.target.result); // Guardar producto con imagen en base64
+        }; 
+        reader.readAsDataURL(file); // Leer archivo como base64
+      } else { // Usar imagen por defecto si no se seleccionó ninguna
+        let imgBase64 = defaultImg;
+        if (editIndex !== null && editIndex !== "" && productos[editIndex].img) { // Mantener imagen existente al editar
+          imgBase64 = productos[editIndex].img;
+        }
+        guardarProducto(imgBase64); // Guardar producto sin nueva imagen
+      }
+    });
+
+    document.getElementById("logout").addEventListener("click", () => { // Cerrar sesión
+      localStorage.removeItem("adminLogged"); // Eliminar estado de sesión
+      window.location.href = "index.html"; // Redirigir a la página principal
+    });
+
+    mostrarProductos(); // Mostrar productos al cargar la página
+  </script>
+</body>
+</html>
